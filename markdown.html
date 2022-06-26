@@ -1,0 +1,11 @@
+<textarea id="editor" name="markdown" rows="8" cols="40"></textarea>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css">
+<script src="https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+var simplemde = new SimpleMDE({ element: document.getElementById("editor") });
+var mParse = () => {
+    var text = document.querySelector("body > div.CodeMirror.cm-s-paper.CodeMirror-wrap.CodeMirror-fullscreen.CodeMirror-sided").innerText;
+    return marked.parse(text, { headerIds: false });
+}
+</script>

@@ -1,0 +1,122 @@
+/*
+ * default
+ */
+body {
+    background-image: url(background.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+h1 {
+    font-size: 60;
+    font-weight: 500;
+    border-bottom: 3px solid #000;
+}
+h2 {
+    font-size: 50;
+    font-weight: 400;
+}
+h3 {
+    font-size: 40;
+    font-weight: 300;
+}
+h4 {
+    font-size: 35;
+    font-weight: 300;
+}
+p {
+    font-size: 25;
+    font-weight: 300;
+}
+
+
+/*
+ * header
+ */
+#header {
+    width: 100vw;
+    height: 100vh;
+    text-align: center;
+}
+#header .logo {
+    margin-top: 25vh;
+    width: 50vw;
+}
+#header ul {
+    margin-top: 15vh;
+    list-style: none;
+}
+#header li {
+    margin: 0 30 0 30;
+    display: inline;
+    font-size: 20;
+    font-weight: 500;
+}
+#header .button {
+    display: inline;
+    width: 10%;
+    margin-top: 15vh;
+    font-size: 60;
+    font-weight: 500;
+}
+nav {
+    background-color: #ffd8d86f;
+    width: 100vw;
+    position: sticky;
+    top: 0;
+}
+nav ul {
+   /* flexboxでナビゲーションバーを横並び配置する */
+    display: flex;
+   /* 縦幅中央に配置する指定 */
+    align-items: center;
+   /* 横幅中央に配置する指定 */
+    justify-content: center;
+    width: 100%;
+   /* リストスタイルを削除 */
+    list-style: none;
+}
+nav ul a {
+   /* ナビゲーションメニュー同士の間隔を指定 */
+    padding: 3% 3% 3% 3%;
+    margin: 0 5% 0 5%;
+}
+nav ul a li {
+    color: #000;
+    font-size: 20;
+    font-weight: 400;
+    text-decoration: none;
+}
+nav ul a li:hover {
+   /* hover後に色を変化させる指定 */
+    color: #ff6f00;
+}
+
+
+/*
+ * main
+ */
+main {
+    width: 100%;
+}
+main #main {
+    margin: 0 auto;
+    width: 50vw;
+}
+
+
+/*
+ * footer
+ */
+footer {
+    width: 100vw;
+    text-align: center;
+    font-size: 3rem;
+    background-color: #ff00006f;
+    margin-bottom: 0;
+}
+footer p {
+    margin-top: 0;
+    padding-top: 10;
+    margin-bottom: 0;
+    padding-bottom: 10;
+}
