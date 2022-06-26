@@ -7,7 +7,7 @@ $(()=>{})
 $(window).scroll(()=>{
     var scroll = $(window).scrollTop();
     if(scroll==0){
-        
+        $('html,body')
     }
 })
 
