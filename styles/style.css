@@ -2,7 +2,7 @@
  * default
  */
 body {
-    background-image: url(background.svg);
+    background-image: url(/tenkitori2/media/background.svg);
     background-repeat: no-repeat;
     background-size: 100% auto;
 }
