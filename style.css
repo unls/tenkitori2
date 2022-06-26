@@ -90,6 +90,9 @@ nav ul a li:hover {
    /* hover後に色を変化させる指定 */
     color: #ff6f00;
 }
+.no-scroll{
+  overflow: hidden
+}
 
 
 /*
