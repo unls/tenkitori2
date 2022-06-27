@@ -1,39 +1,72 @@
-<script  src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
-<canvas id="myChart" width="400" height="400"></canvas>
+<script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+<canvas id="Chart" width="400" height="400"></canvas>
 <script>
-const ctx = document.getElementById('myChart').getContext('2d');
-const myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
+const ctx = document.getElementById('Chart').getContext('2d');
+
+const DATA_COUNT = 12;
+const labels = [];
+for (let i = 0; i < DATA_COUNT; ++i) {
+  labels.push(i.toString());
+}
+const datapoints = [0, 20, 20, 60, 60, 120, NaN, 180, 120, 125, 105, 110, 170];
+const data = {
+  labels: labels,
+  datasets: [
+    {
+      label: 'Cubic interpolation (monotone)',
+      data: datapoints,
+      borderColor: Utils.CHART_COLORS.red,
+      fill: false,
+      cubicInterpolationMode: 'monotone',
+      tension: 0.4
+    }, {
+      label: 'Cubic interpolation',
+      data: datapoints,
+      borderColor: Utils.CHART_COLORS.blue,
+      fill: false,
+      tension: 0.4
+    }, {
+      label: 'Linear interpolation (default)',
+      data: datapoints,
+      borderColor: Utils.CHART_COLORS.green,
+      fill: false
     }
-});
+  ]
+};
+
+const config = {
+  type: 'line',
+  data: data,
+  options: {
+    responsive: true,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Chart.js Line Chart - Cubic interpolation mode'
+      },
+    },
+    interaction: {
+      intersect: false,
+    },
+    scales: {
+      x: {
+        display: true,
+        title: {
+          display: true
+        }
+      },
+      y: {
+        display: true,
+        title: {
+          display: true,
+          text: 'Value'
+        },
+        suggestedMin: -10,
+        suggestedMax: 200
+      }
+    }
+  },
+};
+
+new Chart(ctx, config);
 </script>
