@@ -1,72 +1,30 @@
-<script  src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.js"></script>
-<canvas id="Chart" width="400" height="400"></canvas>
-<script>
-const ctx = document.getElementById('Chart');
 
-const DATA_COUNT = 12;
-const labels = [];
-for (let i = 0; i < DATA_COUNT; ++i) {
-  labels.push(i.toString());
-}
-const datapoints = [0, 20, 20, 60, 60, 120, NaN, 180, 120, 125, 105, 110, 170];
+<canvas id="myChart"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+const labels = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+];
+
 const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: 'Cubic interpolation (monotone)',
-      data: datapoints,
-      borderColor: Utils.CHART_COLORS.red,
-      fill: false,
-      cubicInterpolationMode: 'monotone',
-      tension: 0.4
-    }, {
-      label: 'Cubic interpolation',
-      data: datapoints,
-      borderColor: Utils.CHART_COLORS.blue,
-      fill: false,
-      tension: 0.4
-    }, {
-      label: 'Linear interpolation (default)',
-      data: datapoints,
-      borderColor: Utils.CHART_COLORS.green,
-      fill: false
-    }
-  ]
+    labels: labels,
+    datasets: [{
+    label: 'My First dataset',
+    backgroundColor: 'rgb(255, 99, 132)',
+    borderColor: 'rgb(255, 99, 132)',
+    data: [0, 10, 5, 2, 20, 30, 45],
+    }]
 };
 
 const config = {
-  type: 'line',
-  data: data,
-  options: {
-    responsive: true,
-    plugins: {
-      title: {
-        display: true,
-        text: 'Chart.js Line Chart - Cubic interpolation mode'
-      },
-    },
-    interaction: {
-      intersect: false,
-    },
-    scales: {
-      x: {
-        display: true,
-        title: {
-          display: true
-        }
-      },
-      y: {
-        display: true,
-        title: {
-          display: true,
-          text: 'Value'
-        },
-        suggestedMin: -10,
-        suggestedMax: 200
-      }
-    }
-  },
+    type: 'line',
+    data: data,
+    options: {}
 };
-
-new Chart(ctx, config);
+const myChart = new Chart('myChart',config);
 </script>
