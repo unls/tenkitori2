@@ -1,30 +1,64 @@
-
-<canvas id="myChart"></canvas>
+<canvas id="myChart" height="100%"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-const labels = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-];
-
 const data = {
-    labels: labels,
-    datasets: [{
-    label: 'My First dataset',
-    backgroundColor: 'rgb(255, 99, 132)',
-    borderColor: 'rgb(255, 99, 132)',
-    data: [0, 10, 5, 2, 20, 30, 45],
-    }]
+    labels: ['A','B','C','D','E','F','G'],
+    datasets: [
+        {
+            label: '温度(℃)',
+            backgroundColor: '#FF6384',
+            borderColor: '#FF6384',
+            yAxisID: 'temp',
+            data: [30, 38, 32, 26, 23, 31, 30],
+        },
+        {
+            label: '湿度(%)',
+            backgroundColor: '#006494',
+            borderColor: '#006494',
+            yAxisID: 'hum',
+            data: [0, 5, 10, 15, 20, 25, 30],
+        },
+        {
+            label: '気圧(hPa)',
+            backgroundColor: '#FA6400',
+            borderColor: '#FA6400',
+            yAxisID: 'pres',
+            data: [997, 997, 1000, 998, 999, 1007, 997],
+        },
+    ]
 };
 
 const config = {
-    type: 'line',
-    data: data,
-    options: {}
+   responsive: false,
+	type: 'line',
+	data: data,
+	options: {
+		scales: {
+			temp: {
+				type: 'linear',
+				display: true,
+				position: 'left',
+			},
+         hum: {
+				type: 'linear',
+				display: true,
+				position: 'left',
+                grid: {
+					drawOnChartArea: true,
+				},
+					min: 0,
+					max: 100,
+			},
+			pres: {
+				type: 'linear',
+				display: true,
+				position: 'right',
+				grid: {
+					drawOnChartArea: false,
+				}
+			},
+		}
+	}
 };
 const myChart = new Chart('myChart',config);
 </script>
