@@ -1,4 +1,4 @@
-<canvas id="all-graph"></canvas>
+<canvas id="myChart" height="100%"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
 const data = {
@@ -8,14 +8,14 @@ const data = {
             label: '温度(℃)',
             backgroundColor: '#FF6384',
             borderColor: '#FF6384',
-            yAxisID: 'temp_hum',
+            yAxisID: 'temp',
             data: [30, 38, 32, 26, 23, 31, 30],
         },
         {
             label: '湿度(%)',
             backgroundColor: '#006494',
             borderColor: '#006494',
-            yAxisID: 'temp_hum',
+            yAxisID: 'hum',
             data: [0, 5, 10, 15, 20, 25, 30],
         },
         {
@@ -27,32 +27,35 @@ const data = {
         },
     ]
 };
+
 const config = {
    responsive: false,
 	type: 'line',
 	data: data,
 	options: {
 		scales: {
-			temp_hum: {
-				display: false,
+			temp: {
 				type: 'linear',
 				display: true,
 				position: 'left',
-				min: 0,
-				max: 100,
-				ticks: {
-					stepSize: 10,
+			},
+         hum: {
+				type: 'linear',
+				display: true,
+				position: 'left',
+                grid: {
+					drawOnChartArea: true,
 				},
+					min: 0,
+					max: 100,
 			},
 			pres: {
 				type: 'linear',
 				display: true,
 				position: 'right',
-				min: 1050,
-				max: 950,
-				ticks: {
-					stepSize: 0.1,
-				},
+				grid: {
+					drawOnChartArea: false,
+				}
 			},
 		}
 	}
